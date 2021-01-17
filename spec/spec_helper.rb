@@ -9,6 +9,10 @@ if ActiveRecord::Migrator.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate SINATRA_ENV=test` to resolve the issue.'
 end
 
+if(!File.exist?('public/utils/CNAB.txt'))
+  raise "The CNAB test file is missing. Put the CNAB.txt file in 'public/utils/' directory."
+end
+
 ActiveRecord::Base.logger = nil
 
 RSpec.configure do |config|

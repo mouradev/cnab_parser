@@ -12,14 +12,12 @@ class TransactionsController < ApplicationController
 
   # POST: /transactions
   post "/transactions" do
-    # puts params
-
     if params['file']['type'] != "text/plain"
       status 400
       return false
     end
 
-    puts CNAB.read(params['file']['tempfile'])
+    cnab = CNAB.new(params['file']['tempfile'])
 
     return 'received'
   end
