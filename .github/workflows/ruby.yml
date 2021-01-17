@@ -30,6 +30,4 @@ jobs:
         run: bundle exec rake db:migrate
     - uses: actions/checkout@v2
     - name: Run tests
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        run: bundle exec rspec -fd
+      run: bundle exec rspec -fd
