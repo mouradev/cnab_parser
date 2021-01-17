@@ -9,13 +9,16 @@ describe TransactionsController do
     file = Rack::Test::UploadedFile.new("public/utils/CNAB.txt", "text/plain")
 
     post '/transactions', "file" => file
-    expect(last_response.status).to eq(200)
+
+    expect(last_response.location.include?('/transactions')).to be true
   end
 
   it "upload a non .txt file" do
     file = Rack::Test::UploadedFile.new("config.ru", "application/ruby")
 
     post '/transactions', "file" => file
-    expect(last_response.status).to eq(400)
+
+    redirect_params = Rack::Utils.parse_query(URI.parse(last_response.location).query)
+    expect(redirect_params).to eq("error" => "file_not_valid")
   end
 end
