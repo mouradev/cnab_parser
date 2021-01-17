@@ -28,5 +28,8 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         run: bundle exec rake db:migrate
+    - uses: actions/checkout@v2
     - name: Run tests
-      run: bundle exec rspec -fd
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        run: bundle exec rspec -fd
