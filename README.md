@@ -1,6 +1,6 @@
-### CNAB Blu 🔵
+## CNAB Blu 🔵
 
-#### Rodando a aplicação com Docker :rocket:whale2:
+### Rodando a aplicação com Docker :rocket::whale2:
 
 - Para rodar as migrations antes de subir a aplicação:
     > Este comando só precisa ser executado na primeira inicialização
@@ -17,7 +17,7 @@
 
 - Agora é só acessar http://localhost:3000.
 
-#### Rodar os testes 🧪
+### Rodar os testes 🧪
 
 - Rodar as migrations no ambiente de teste:
 
