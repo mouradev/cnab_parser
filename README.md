@@ -1,4 +1,5 @@
 ## CNAB Blu 🔵
+![Ruby](https://github.com/mouradev/desafio-back-end/workflows/Ruby/badge.svg?branch=master)
 
 ### Rodando a aplicação com Docker :rocket::whale2:
 
