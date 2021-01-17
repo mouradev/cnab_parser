@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20210109190434) do
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "type"
+    t.integer  "t_type"
     t.date     "date"
     t.integer  "value"
     t.string   "cpf"
     t.string   "credit_card"
-    t.time     "hour"
+    t.string   "hour"
     t.string   "store_owner"
     t.string   "store"
     t.datetime "created_at",  null: false
