@@ -13,7 +13,7 @@ gem 'bcrypt'
 gem "tux"
 gem 'sqlite3', '~> 1.3.13'
 gem 'pry'
-
+gem 'money'
 
 group :test do
   gem 'rspec'
