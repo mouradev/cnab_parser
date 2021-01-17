@@ -1,1 +1,10 @@
-<p>Presente</p>
+<p>Adicione aqui  um arquivo CNAB</p>
+
+<form method="post" action="/transactions" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Enviar">
+
+    <% if params.has_key?('error') %>
+        <p class="error-message" style="color:red;">Arquivo inválido</p>
+    <% end %>
+</form>

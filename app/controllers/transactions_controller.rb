@@ -2,43 +2,32 @@ class TransactionsController < ApplicationController
 
   # GET: /transactions
   get "/transactions" do
+    @transactions = Transaction.all
     erb :"/transactions/index.html"
-  end
-
-  # GET: /transactions/new
-  get "/transactions/new" do
-    erb :"/transactions/new.html"
   end
 
   # POST: /transactions
   post "/transactions" do
-    if params['file']['type'] != "text/plain"
-      status 400
-      return false
+    if !params.has_key?('file') || params['file']['type'] != "text/plain"
+      redirect '/?error=file_not_valid'
     end
 
     cnab = CNAB.new(params['file']['tempfile'])
 
-    return 'received'
-  end
+    cnab.get_all.each do |line|
+      transaction = Transaction.new
+      transaction.t_type = line['type']
+      transaction.date = line['date']
+      transaction.value = line['value']
+      transaction.cpf = line['cpf']
+      transaction.credit_card = line['credit_card']
+      transaction.hour = line['hour']
+      transaction.store_owner = line['store_owner']
+      transaction.store = line['store']
 
-  # GET: /transactions/5
-  get "/transactions/:id" do
-    erb :"/transactions/show.html"
-  end
+      transaction.save
+    end
 
-  # GET: /transactions/5/edit
-  get "/transactions/:id/edit" do
-    erb :"/transactions/edit.html"
-  end
-
-  # PATCH: /transactions/5
-  patch "/transactions/:id" do
-    redirect "/transactions/:id"
-  end
-
-  # DELETE: /transactions/5/delete
-  delete "/transactions/:id/delete" do
-    redirect "/transactions"
+    redirect '/transactions'
   end
 end

@@ -1,1 +1,26 @@
-<h1>This is the Model's index page.</h1>
+<table>
+<tr>
+    <th>ID</th>
+    <th>Tipo</th>
+    <th>Data</th>
+    <th>Valor</th>
+    <th>CPF</th>
+    <th>Cartão</th>
+    <th>Hora</th>
+    <th>Dono da Loja</th>
+    <th>Loja</th>
+</tr>
+<% @transactions.each do |transaction| %>
+    <tr>
+        <td>#<%= transaction.id %></td>
+        <td style="max-width:120px"><%= CNAB.type(transaction.t_type)['description'] %></td>
+        <td style="min-width:85px"><%= transaction.date %></td>
+        <td><%= mask_money(transaction.value) %></td>
+        <td style="min-width:115px"><%= mask_cpf(transaction.cpf) %></td>
+        <td><%= transaction.credit_card %></td>
+        <td style="min-width:65px"><%= mask_hour(transaction.hour) %></td>
+        <td><%= transaction.store_owner %></td>
+        <td><%= transaction.store %></td>
+    </tr>
+<% end %>
+</table>
