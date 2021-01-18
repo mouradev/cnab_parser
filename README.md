@@ -1,6 +1,8 @@
 ## CNAB Blu 🔵
 ![Ruby](https://github.com/mouradev/desafio-back-end/workflows/Ruby/badge.svg?branch=master)
 
+Eu utilizei Ruby com [Sinatra](http://sinatrarb.com) e [Corneal](https://github.com/thebrianemory/corneal) para fazer este desafio, a aplicação está pronta para rodar com Docker, mas caso não tenha docker instalado, [Leia as instruções para rodar sem Docker](https://github.com/mouradev/desafio-back-end/blob/master/no-docker-readme.md).
+
 ### Rodando a aplicação com Docker :rocket::whale2:
 
 - Para rodar as migrations antes de subir a aplicação:
